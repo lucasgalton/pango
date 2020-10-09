@@ -332,7 +332,7 @@ func (c *Client) ConfigLocks(vsys string) ([]util.Lock, error) {
 
 	c.LogOp("(op) getting config locks for scope %q", vsys)
 	ans := configLocks{}
-	_, err := c.Op("<show><config-locks /></show>", vsys, nil, &ans)
+	_, err := c.Op("<show><config-locks><vsys>all</vsys></config-locks></show>", vsys, nil, &ans)
 	if err != nil {
 		return nil, err
 	}
